@@ -1,13 +1,16 @@
 ﻿using Bulky.DataAccess.Repository.IRepository;
 using Microsoft.AspNetCore.Mvc;
 using Bulky.Models;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Bulky.Models.ViewModels;
+using Bulky.Utilities;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BulkyWeb.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = SD.Role_Admin)]
+
     public class ProductController : Controller
     {
         private readonly IUnitOfWorkRepository _unitOfWork;
@@ -20,7 +23,7 @@ namespace BulkyWeb.Areas.Admin.Controllers
         }
         public IActionResult Index()
         {
-            List<Product> productsList = _unitOfWork.Product.GetAll("Category").ToList();
+            List<Product> productsList = _unitOfWork.Product.GetAll(filter: null ,"Category").ToList();
             return View(productsList);
         }
 
@@ -184,7 +187,7 @@ namespace BulkyWeb.Areas.Admin.Controllers
 
         public IActionResult GetAll()
         {
-            IEnumerable<Product> productList = _unitOfWork.Product.GetAll("Category");
+            IEnumerable<Product> productList = _unitOfWork.Product.GetAll(filter:null ,"Category");
             return Json(new {data = productList});
         }
 

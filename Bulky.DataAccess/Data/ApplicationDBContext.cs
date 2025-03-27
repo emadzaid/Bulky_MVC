@@ -1,16 +1,24 @@
 ﻿using Bulky.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
 
 namespace Bulky.DataAccess.Data
 {
-    public class ApplicationDBContext : DbContext
+    public class ApplicationDBContext : IdentityDbContext<IdentityUser>
     {
         public ApplicationDBContext(DbContextOptions<ApplicationDBContext> options) : base(options) { }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Product> Products { get; set; }
+        public DbSet<Company> Companies { get; set; }
+        public DbSet<ApplicationUser> ApplicationUsers { get; set; }
+        public DbSet<ShoppingCart> ShopingCarts { get; set; }
+        public DbSet<OrderHeader> OrderHeaders { get; set; }
+        public DbSet<OrderDetail> OrderDetails { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+           base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<Category>().HasData(
                 
                 new Category { Id = 1, Name = "Action", DisplayOrder = 1 },
@@ -110,6 +118,45 @@ namespace Bulky.DataAccess.Data
                     ImageUrl = ""
 
                 }
+
+                );
+
+            modelBuilder.Entity<Company>().HasData(
+                new Company
+                {
+                    Id = 1,
+                    Name = "CompanyA",
+                    StreetAddress = "4964 Hidden Valley Road",
+                    City = "Lahore",
+                    State = "Punjab",
+                    PostalCode = "123456",
+                    PhoneNumber = "+92 123456789"
+             
+                },
+
+                 new Company
+                 {
+                     Id = 2,
+                     Name = "CompanyB",
+                     StreetAddress = "1731 Ottis Street",
+                     City = "Los Angeles",
+                     State = "LA",
+                     PostalCode = "123456",
+                     PhoneNumber = "+12 3456789"
+
+                 },
+
+                  new Company
+                  {
+                      Id = 3,
+                      Name = "CompanyC",
+                      StreetAddress = "58 Safari Villa Street",
+                      City = "Isalambad",
+                      State = "Punjab",
+                      PostalCode = "123",
+                      PhoneNumber = "+12 3456789"
+
+                  }
 
                 );
         }
