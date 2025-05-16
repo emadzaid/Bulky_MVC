@@ -148,10 +148,12 @@ namespace BulkyWeb.Areas.Admin.Controllers
             orderVM.OrderHeader = orderHeader;
             orderVM.OrderDetails = orderDetails;
 
+
+            var domain = Request.Scheme + "://" + Request.Host.Value + "/";
             var options = new SessionCreateOptions
             {   
-                SuccessUrl = $"https://localhost:7144/admin/order/PaymentConfirmation?orderHeaderId={orderVM.OrderHeader.Id}",
-                CancelUrl = $"https://localhost:7144/admin/details?orderId={orderVM.OrderHeader.Id}",
+                SuccessUrl = domain+$"admin/order/PaymentConfirmation?orderHeaderId={orderVM.OrderHeader.Id}",
+                CancelUrl = domain+$"admin/details?orderId={orderVM.OrderHeader.Id}",
                 LineItems = new List<Stripe.Checkout.SessionLineItemOptions>(),
                 Mode = "payment",
             };

@@ -169,10 +169,11 @@ namespace BulkyWeb.Areas.Customer.Controllers
 
             if(applicationUser.CompanyId.GetValueOrDefault() == 0)
             {
+                var domain = Request.Scheme + "://" + Request.Host.Value + "/";
                 var options = new Stripe.Checkout.SessionCreateOptions
                 {
-                    SuccessUrl = $"https://localhost:7144/customer/ShoppingCart/OrderConfirmation?id={shoppingCartVM.OrderHeader.Id}",
-                    CancelUrl =   "https://localhost:7144/customer/ShoppingCart/Index",
+                    SuccessUrl = domain + $"customer/ShoppingCart/OrderConfirmation?id={shoppingCartVM.OrderHeader.Id}",
+                    CancelUrl =   domain + "customer/ShoppingCart/Index",
                     LineItems = new List<Stripe.Checkout.SessionLineItemOptions>(),
                     Mode = "payment",
                 };
