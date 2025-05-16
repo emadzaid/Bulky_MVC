@@ -10,6 +10,9 @@ function loadCompanyTable() {
             url: '/admin/company/getall'
         },
 
+        scrollX: true, 
+        responsive: true,
+
         "columns": [
             { data: 'name', "width": "20%" },
             { data: 'streetAddress', "width": "20%" },
