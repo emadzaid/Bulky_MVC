@@ -39,3 +39,28 @@ The website is live at [bulkyweb.com](https://bulkyweb-dotnet-htfjb2b5addjgkb0.c
 
 ## Stripe Checkout Screen
 ![05_StripeCheckoutScreen](https://github.com/user-attachments/assets/1c45bf0b-6445-49b7-bdca-24fbd3888dbf)
+
+## Features
+
++ Full-featured shopping cart with dynamic pricing based on product quantity
++ CRUD operations for managing products, orders, and user data
++ Role-based access control with Admin, Customer, and Company roles
++ Admin panel to manage products, view orders, and update statuses
++ Stripe integration for secure and seamless payment processing
++ Facebook login support for quick and easy user authentication
++ Identity Framework implemented for robust authentication and user management
++ Deployed on Microsoft Azure for reliable cloud hosting
+  
+
+### Admin Login Credentials
+
+You can use the following email and password to login as admin
+
+
+```
+(Admin)
+
+Email: admin@bulky.com 
+Password: Admin123*
+
+```  
