@@ -7,5 +7,5 @@ Stripe is integrated for secure payments, and the application is deployed on Mic
 
 The website is live at [bulkyweb.com](https://bulkyweb-dotnet-htfjb2b5addjgkb0.canadacentral-01.azurewebsites.net/)
 
-![Untitled design](![01](https://github.com/user-attachments/assets/e6092ae3-d704-4d30-bc8c-3aabaf37dd03)
+![Untitled design](https://github.com/user-attachments/assets/e6092ae3-d704-4d30-bc8c-3aabaf37dd03)
 
